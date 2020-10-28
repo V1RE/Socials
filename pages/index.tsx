@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Card from "../components/Card";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
 
       <main>
         <h1>Hello Next</h1>
+        <Card />
       </main>
     </div>
   );
