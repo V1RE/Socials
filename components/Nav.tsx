@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav className="flex flex-wrap items-center justify-between p-6 bg-teal-500">
+    <nav className="flex flex-wrap items-center justify-between p-6 bg-gray-800">
       <div className="flex items-center flex-shrink-0 mr-6 text-white">
         <Link href="/">
           <a>

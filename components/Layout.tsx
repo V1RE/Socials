@@ -4,18 +4,18 @@ import Nav from "./Nav";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-full">
+    <div className="flex flex-col min-h-screen">
       <Head>
         <title>Socials</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="sticky top-0 mb-4">
+      <header className="sticky top-0">
         <Nav />
       </header>
 
       <main>
-        <div className="container mx-auto">{children}</div>
+        <div className="container p-6 mx-auto">{children}</div>
       </main>
 
       <footer className="mt-auto">Footer placeholder</footer>
