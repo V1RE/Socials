@@ -1,18 +1,11 @@
-import Head from "next/head";
 import Card from "../components/Card";
+import Layout from "../components/Layout";
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>Socials</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1>Hello Next</h1>
-        <Card />
-      </main>
-    </div>
+    <Layout>
+      <h1 className="text-4xl">Hello Next</h1>
+      <Card />
+    </Layout>
   );
 }
