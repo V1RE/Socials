@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Layout from "../../components/Layout";
-import Image from "next/image";
 
 const USERNAME = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/;
 
@@ -10,8 +9,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { username } = params;
+  console.log(username);
 
   if (!USERNAME.test(username)) {
+    console.log("username doesnt regex");
     return { props: {} };
   }
 
@@ -20,22 +21,28 @@ export async function getStaticProps({ params }) {
     const resp = await res.json();
     const user = await resp?.graphql?.user;
 
+    console.log(user);
+
     return { props: { user } };
   } catch (error) {
     // The Instagram API most likely died
     console.error(error);
-    return { props: {} };
+    return { props: { error } };
   }
 }
 
-const Userpage = ({ user }) => {
+const Userpage = ({ user, error }) => {
   useEffect(() => {
     console.log(user);
+    console.error(error);
   });
   return (
     <Layout>
       <img src={user?.profile_pic_url_hd} width="200" height="200" />
-      <div>Hi {user?.full_name}!</div>
+      <div>
+        Hi
+        {user?.full_name}!
+      </div>
     </Layout>
   );
 };
