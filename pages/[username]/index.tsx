@@ -10,14 +10,8 @@ export async function getStaticProps({ params }) {
   const { username } = params;
   console.log(username);
 
-  try {
-    const user = await getUser(username);
-    return { props: { user } };
-  } catch (error) {
-    // The Instagram API most likely died
-    console.error(error);
-    return { props: { error } };
-  }
+  const user = await getUser(username);
+  return { props: { user }, revalidate: 1 };
 }
 
 const Userpage = ({ user, error }) => {
