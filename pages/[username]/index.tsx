@@ -36,11 +36,11 @@ const Userpage = ({ user, error }) => {
     return (
       <Layout>
         <Card>
-          <div className="flex space-y-4 flex-col">
-            <div className="flex sm:space-x-4 space-y-4 sm:space-y-0 items-center flex-wrap flex-col sm:flex-row text-center sm:text-left">
+          <div className="flex flex-col space-y-4">
+            <div className="flex flex-col flex-wrap items-center text-center sm:space-x-4 space-y-4 sm:space-y-0 sm:flex-row sm:text-left">
               <ProfileImg />
-              <div className="flex-1">
-                <div className="h-4 bg-gray-400 rounded w-3/4"></div>
+              <div className="flex-1 animate-pulse">
+                <div className="w-3/4 h-4 bg-gray-400 rounded"></div>
               </div>
             </div>
             <hr />
@@ -55,8 +55,8 @@ const Userpage = ({ user, error }) => {
   return (
     <Layout>
       <Card>
-        <div className="flex space-y-4 flex-col">
-          <div className="flex sm:space-x-4 space-y-4 sm:space-y-0 items-center flex-wrap flex-col sm:flex-row text-center sm:text-left">
+        <div className="flex flex-col space-y-4">
+          <div className="flex flex-col flex-wrap items-center text-center sm:space-x-4 space-y-4 sm:space-y-0 sm:flex-row sm:text-left">
             <ProfileImg src={user?.image} name={fullName} />
             <div className="flex-1">
               <h1 className="text-2xl">{fullName}</h1>
