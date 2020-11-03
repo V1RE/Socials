@@ -4,6 +4,8 @@ import { getUser } from "../api/user";
 import Card from "../../components/Card";
 import ProfileImg from "../../components/ProfileImg";
 import { useRouter } from "next/router";
+import { FiInstagram } from "react-icons/fi";
+import { Icon } from "@chakra-ui/core";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -63,6 +65,15 @@ const Userpage = ({ user, error }) => {
             </div>
           </div>
           <hr />
+          <ul className="flex flex-wrap justify-start gap-5">
+            {user?.items.map((item) => (
+              <li key={item?.title}>
+                <a href={item?.url}>
+                  <Icon as={FiInstagram} boxSize={24} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </Card>
     </Layout>
