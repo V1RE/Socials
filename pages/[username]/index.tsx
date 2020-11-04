@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Layout from "../../components/Layout";
 import { getUser } from "../api/user";
 import Card from "../../components/Card";
+import UserCard from "../../components/UserCard";
 import ProfileImg from "../../components/ProfileImg";
 import { useRouter } from "next/router";
 import { FiInstagram } from "react-icons/fi";
@@ -52,30 +53,9 @@ const Userpage = ({ user, error }) => {
     );
   }
 
-  const fullName = `${user?.firstName} ${user?.lastName}`;
-
   return (
     <Layout>
-      <Card>
-        <div className="flex flex-col space-y-4">
-          <div className="flex flex-col flex-wrap items-center text-center sm:space-x-4 space-y-4 sm:space-y-0 sm:flex-row sm:text-left">
-            <ProfileImg src={user?.image} name={fullName} />
-            <div className="flex-1">
-              <h1 className="text-2xl">{fullName}</h1>
-            </div>
-          </div>
-          <hr />
-          <ul className="flex flex-wrap justify-start gap-5">
-            {user?.items.map((item) => (
-              <li key={item?.title}>
-                <a href={item?.url}>
-                  <Icon as={FiInstagram} boxSize={24} />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Card>
+      <UserCard user={user} />
     </Layout>
   );
 };

@@ -1,11 +1,17 @@
 import React from "react";
 import Image from "next/image";
+import Initials from "./Initials";
 
-const ProfileImg = ({ src = "", name = "" }) => {
+const ProfileImg = ({ user }) => {
+  const fullName = `${user?.firstName} ${user?.lastName}`;
   return (
-    <div className={`${!src ? "animate-pulse" : ""}`}>
-      <div className="rounded-full bg-gray-400 h-32 w-32 overflow-hidden">
-        {src && <Image src={src} width="200" height="200" alt={name} />}
+    <div>
+      <div className="w-32 h-32 overflow-hidden bg-gray-400 rounded-full">
+        {user?.image ? (
+          <Image src={user?.image} width="200" height="200" alt={fullName} />
+        ) : (
+          <Initials firstName={user?.firstName} lastName={user?.lastName} />
+        )}
       </div>
     </div>
   );
